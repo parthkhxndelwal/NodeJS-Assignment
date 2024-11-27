@@ -8,9 +8,7 @@ const app = express();
 // Middleware setup
 app.use(express.json());
 app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false
+    secret: 'your-secret-key'
 }));
 
 /*
@@ -36,6 +34,7 @@ const authRouter = express.Router();
 
 // Login route
 authRouter.post('/login', (req, res) => {
+    
     const { username, password } = req.body;
 
     if (username === 'admin' && password === 'password123') {
